@@ -31,4 +31,17 @@ public class IterativeSearchTest {
         assertThat(result).isEqualTo(-1);
     }
 
+    @Test
+    public void should_return_negative_one_value_if_value_is_absent_from_array () {
+        //Given
+        BinarySearch binarySearch = new IterativeSearch();
+        int[] elements = {0,1,2,3,4};
+
+        //When
+        Integer result = binarySearch.search(5, elements);
+
+        //Then
+        assertThat(result).isEqualTo(-1);
+    }
+
 }
