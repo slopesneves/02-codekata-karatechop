@@ -18,4 +18,17 @@ public class IterativeSearchTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void should_return_negative_one_value_if_search_on_empty_array () {
+        //Given
+        BinarySearch binarySearch = new IterativeSearch();
+        int[] elements = {};
+
+        //When
+        Integer result = binarySearch.search(2, elements);
+
+        //Then
+        assertThat(result).isEqualTo(-1);
+    }
+
 }
