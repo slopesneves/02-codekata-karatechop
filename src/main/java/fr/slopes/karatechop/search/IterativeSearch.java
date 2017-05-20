@@ -1,6 +1,9 @@
 package fr.slopes.karatechop.search;
 
 public class IterativeSearch implements BinarySearch {
+
+    private static final int ELEMENT_NOT_FOUND = -1;
+
     @Override
     public int search(int elementToFind, int[] elements) {
         int i = 0;
@@ -10,7 +13,6 @@ public class IterativeSearch implements BinarySearch {
             }
             i++;
         }
-
-        return -1;
+        return ELEMENT_NOT_FOUND;
     }
 }
