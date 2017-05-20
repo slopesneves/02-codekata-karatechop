@@ -1,7 +1,8 @@
 package fr.slopes.karatechop.search;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class IterativeSearchTest {
     @Test
@@ -14,7 +15,7 @@ public class IterativeSearchTest {
         Integer result = binarySearch.search(2, elements);
 
         //Then
-        Assertions.assertThat(result).isEqualTo(1);
+        assertThat(result).isEqualTo(1);
     }
 
 }
