@@ -14,7 +14,7 @@ public class IterativeSearchTest {
         Integer result = binarySearch.search(2, elements);
 
         //Then
-        Assertions.assertThat(result).isEqualTo(2);
+        Assertions.assertThat(result).isEqualTo(1);
     }
 
 }
