@@ -1,10 +1,14 @@
 package fr.slopes.karatechop.search;
 
-import sun.security.util.PendingException;
+import java.util.stream.IntStream;
 
 public class FunctionalSearch implements BinarySearch {
     @Override
     public int search(int elementToFind, int[] elements) {
-        throw new PendingException();
+        return IntStream
+                .iterate(0, i -> i + 1)
+                .limit(elements.length)
+                .filter(i -> elements[i] == elementToFind)
+                .findAny().orElse(-1);
     }
 }
