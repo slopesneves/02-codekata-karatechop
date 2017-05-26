@@ -51,7 +51,7 @@ public class BinarySearchTest {
         assertThat(result).isEqualTo(-1);
     }
 
-    @Parameters
+    @Parameters(name = "{0} implementation")
     public static Class<? extends BinarySearch>[] searchImplementations () {
         return new Class[]{
                 IterativeSearch.class,
