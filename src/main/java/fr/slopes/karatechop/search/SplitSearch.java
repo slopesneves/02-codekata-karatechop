@@ -1,7 +1,5 @@
 package fr.slopes.karatechop.search;
 
-import sun.security.util.PendingException;
-
 public class SplitSearch implements BinarySearch {
     @Override
     public int search(int elementToFind, int[] elements) {
@@ -20,10 +18,8 @@ public class SplitSearch implements BinarySearch {
             return -1;
         }else if(evaluateElement < elementToFind) {
             return search(middleIndex + 1, maxIndex, elementToFind, elements);
-        }else if(evaluateElement > elementToFind) {
+        }else {
             return search(minIndex, middleIndex - 1, elementToFind, elements);
-        }else{
-            throw new PendingException();
         }
     }
 }
