@@ -1,14 +1,26 @@
 package fr.slopes.karatechop.search;
 
+import org.assertj.core.util.Lists;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IterativeSearchTest {
+@RunWith(Parameterized.class)
+public class BinarySearchTest {
+
+    private BinarySearch binarySearch;
+
+    public BinarySearchTest (Class<? extends BinarySearch> implementation) throws IllegalAccessException, InstantiationException {
+        binarySearch = implementation.newInstance();
+    }
     @Test
     public void should_return_index_of_element_if_element_is_in_ordered_array () {
         //Given
-        BinarySearch binarySearch = new IterativeSearch();
         int[] elements = {1, 2, 3, 4};
 
         //When
@@ -21,7 +33,6 @@ public class IterativeSearchTest {
     @Test
     public void should_return_negative_one_value_if_search_on_empty_array () {
         //Given
-        BinarySearch binarySearch = new IterativeSearch();
         int[] elements = {};
 
         //When
@@ -34,7 +45,6 @@ public class IterativeSearchTest {
     @Test
     public void should_return_negative_one_value_if_value_is_absent_from_array () {
         //Given
-        BinarySearch binarySearch = new IterativeSearch();
         int[] elements = {0,1,2,3,4};
 
         //When
@@ -42,6 +52,14 @@ public class IterativeSearchTest {
 
         //Then
         assertThat(result).isEqualTo(-1);
+    }
+
+    @Parameters(name = "{0} implementation")
+    public static List<Class<? extends BinarySearch>> searchImplementations () {
+        return Lists.newArrayList(
+                IterativeSearch.class,
+                FunctionalSearch.class
+        );
     }
 
 }
