@@ -58,7 +58,8 @@ public class BinarySearchTest {
     public static List<Class<? extends BinarySearch>> searchImplementations () {
         return Lists.newArrayList(
                 IterativeSearch.class,
-                FunctionalSearch.class
+                FunctionalSearch.class,
+                SplitSearch.class
         );
     }
 
