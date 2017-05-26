@@ -1,9 +1,12 @@
 package fr.slopes.karatechop.search;
 
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -52,11 +55,11 @@ public class BinarySearchTest {
     }
 
     @Parameters(name = "{0} implementation")
-    public static Class<? extends BinarySearch>[] searchImplementations () {
-        return new Class[]{
+    public static List<Class<? extends BinarySearch>> searchImplementations () {
+        return Lists.newArrayList(
                 IterativeSearch.class,
                 FunctionalSearch.class
-        };
+        );
     }
 
 }
