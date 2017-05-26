@@ -1,10 +1,13 @@
 package fr.slopes.karatechop.search;
 
 public class SplitSearch implements BinarySearch {
+
+    private static final int ELEMENT_NOT_FOUND = -1;
+
     @Override
     public int search(int elementToFind, int[] elements) {
         if (elements.length == 0) {
-            return -1;
+            return ELEMENT_NOT_FOUND;
         }
         return search(0, elements.length - 1, elementToFind, elements);
     }
@@ -15,7 +18,7 @@ public class SplitSearch implements BinarySearch {
         if (evaluateElement == elementToFind) {
             return middleIndex;
         }else if(minIndex == maxIndex) {
-            return -1;
+            return ELEMENT_NOT_FOUND;
         }else if(evaluateElement < elementToFind) {
             return search(middleIndex + 1, maxIndex, elementToFind, elements);
         }else {
